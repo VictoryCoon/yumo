@@ -1,0 +1,273 @@
+.Header{
+    display: block;
+    position: fixed;
+    width:100%;
+    min-width:900px;
+    height:90px;
+    border:0px solid;
+    box-sizing: border-box;
+    top:0;
+    left:0;
+    margin: 0 auto;
+    padding: 0;
+    box-shadow: 0px 0px 6px #9AF5F3;
+    background-color: #FFFFFF;
+    z-index: 4;
+}
+
+.TitleBar{
+    display: block;
+    margin:0 auto;
+    border:0px solid;
+    width:90%;
+    height: 50px;
+    line-height: 50px;
+    float:left;
+    box-sizing: border-box;
+}
+
+.ButtonL{
+    display: block;
+    margin:0 auto;
+    padding:15px;
+    width:5%;
+    border:0px solid;
+    float:left;
+    box-sizing: border-box;
+    font-size:1.8em;
+}
+.ButtonR{
+    display: block;
+    margin:0 auto;
+    padding:15px;
+    width:5%;
+    border:0px solid;
+    float:right;
+    box-sizing: border-box;
+    font-size:1.8em;
+}
+
+.ButtonStyle{
+    width:100%;
+}
+
+.ButtonStyle:hover{
+    cursor: pointer;
+    transition:0.5s;
+    opacity: 0.5;
+}
+
+.MenuBar{
+    display: block;
+    margin:0 auto;
+    border:0px solid;
+    box-sizing: border-box;
+    min-width:600px;
+    width:inherit;
+    height: 40px;
+    line-height: 40px;
+}
+
+.MenuBar .mButton{
+    display: inline-table;
+    align-items: center;
+    margin:5px;
+    width:100px;
+    height:inherit;
+    border:0px solid;
+    box-sizing: border-box;
+}
+
+.MenuBar .mButton:hover{
+    cursor:pointer;
+    color:#9AF5F3;
+}
+
+.BodyContent{
+    color:#35B7B5;
+    display: block;
+    position: absolute;
+    border:0px solid #35CBE2;
+    box-sizing: border-box;
+    width:100%;
+    top:90px;
+    left:0;
+    z-index:2;
+    overflow: hidden;
+}
+.BodyContent .PostTab{
+    display: block;
+    margin:0 auto;
+    width: 1200px;
+    height: 45px;
+    box-sizing: border-box;
+    justify-content:center;
+    align-items: center;
+    text-align: left;
+    font-size: 1.8em;
+}
+
+.BodyContent .SearchTab{
+    display: block;
+    margin:0 auto;
+    width: 1200px;
+    height: 45px;
+    box-sizing: border-box;
+    justify-content:center;
+    align-items: center;
+    text-align: right;
+}
+
+.BodyContent .SearchTab>select{
+    width: 90px;
+    height: 30px;
+    border:0px;
+    box-shadow: 0px 0px 3px #AAAAAA;
+    text-align: center;
+    margin-right: 9px;
+    background-color: rgba(0,0,0,0.0);
+}
+
+.BodyContent .SearchTab>input{
+    width: 240px;
+    padding-right: 12px;
+    height: 30px;
+    border:0px;
+    box-shadow: 0px 0px 3px #AAAAAA;
+    text-align: right;
+    margin-right: 9px;
+    background-color: rgba(0,0,0,0.0);
+}
+
+.BodyContent .SearchTab>button{
+    width: 30px;
+    height: 30px;
+    border:0px;
+    box-shadow: 0px 0px 3px #AAAAAA;
+    background-color: rgba(0,0,0,0.0);
+}
+.BodyContent .SearchTab>*{
+    transition: 0.3s;
+}
+.BodyContent .SearchTab>*:hover{
+    cursor: pointer;
+    box-shadow: 0px 0px 6px #35CBE2;
+    color: #35CBE2;
+}
+
+.BodyContent .Banner{
+    display: flex;
+    width: 100%;
+    height: 150px;
+    /* background-image: url("../img/banner.png");
+    background-size: 100% 180px;*/
+    justify-content:center;
+    align-items: center;
+    /* opacity: 0.5; */
+}
+
+.BodyContent .Banner>h1{
+    opacity:1;
+}
+
+.BodyContent .BoardListSet{
+    display: block;
+    margin:0 auto;
+    box-sizing: border-box;
+    border:0px solid;
+    width: 1200px;
+}
+
+.BodyContent .BoardListSet .BarEachUl{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+    width:inherit;
+    font-weight: bold;
+    font-size: 1.2em;
+    height: 42px;
+    border-bottom:3px double #35CBE2;
+    border-top:3px double #35CBE2;
+    display: block;    
+}
+
+.BodyContent .BoardListSet .BarEachUl .BarEachLi{
+    display: flex;
+    box-sizing: border-box;
+    height: inherit;
+    float: left;
+    border:0px solid;
+    justify-content:center;
+    align-items: center;
+}
+
+.BodyContent .BoardListSet .BarEachUl .BarEachLi:nth-child(1){max-width: 15%;width: 15%;}
+.BodyContent .BoardListSet .BarEachUl .BarEachLi:nth-child(2){max-width: 50%;width: 50%;}
+.BodyContent .BoardListSet .BarEachUl .BarEachLi:nth-child(3){max-width: 12%;width: 12%;}
+.BodyContent .BoardListSet .BarEachUl .BarEachLi:nth-child(4){max-width: 15%;width: 15%;}
+.BodyContent .BoardListSet .BarEachUl .BarEachLi:nth-child(5){max-width:  8%;width:  8%;}
+
+.BodyContent .BoardList{
+    display: block;
+    margin:0 auto;
+    box-sizing: border-box;
+    border:0px solid;
+    width: 1200px;
+    height:50vh;
+    overflow-y:auto;
+    overflow-x:hidden;
+}
+
+.BodyContent .BoardList .EachUl{
+    padding:0;
+    box-sizing: border-box;
+    width:inherit;
+    height: 120px;
+    border-bottom:1px solid #35CBE2;
+    display: block;
+}
+
+.BodyContent .BoardList .EachUl .EachLi{
+    display: flex;
+    box-sizing: border-box;
+    height: inherit;
+    float: left;
+    border:0px solid;
+    justify-content:center;
+    align-items: center;
+}
+
+.BodyContent .BoardList .EachUl .EachLi .EachThumbnail{
+    display: flex;
+    box-sizing: border-box;
+    border:0px solid;
+    width:95%;
+    height: inherit;
+    margin-bottom:21px;
+    box-shadow: 0px 0px 6px #AAAAAA;
+}
+
+.BodyContent .BoardList .EachUl .EachLi> *:hover{
+    cursor:pointer;
+    transform:scale(1.02);
+    transition:0.3s;
+    color:#40E0D0;
+}
+
+.BodyContent .BoardList .EachUl .EachLi:nth-child(1){max-width: 15%;width: 15%;}
+.BodyContent .BoardList .EachUl .EachLi:nth-child(2){max-width: 50%;width: 50%;}
+.BodyContent .BoardList .EachUl .EachLi:nth-child(3){max-width: 12%;width: 12%;}
+.BodyContent .BoardList .EachUl .EachLi:nth-child(4){max-width: 15%;width: 15%;}
+.BodyContent .BoardList .EachUl .EachLi:nth-child(5){max-width:  8%;width:  8%;}
+
+.PageNav{
+    margin-top : 30px;
+    width: inherit;
+    height: 120px;
+    box-sizing: border-box;
+    border: 0px solid;
+    font-size: 1.5em;
+    justify-content: center;
+    align-items: center;
+}
+
