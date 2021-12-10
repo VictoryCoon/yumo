@@ -1,0 +1,138 @@
+/* 최초 등록정보는 관리자 등록처리 */
+INSERT INTO Y_USER
+( USER_SID
+, USER_ID
+, USER_NAME
+, USER_NICK
+, USER_PHONE
+, USER_BIRTH
+, USER_EMAIL_ID
+, USER_EMAIL_PF
+, USER_GENDER
+, USER_GRADE
+)VALUES
+( TO_CHAR(SYSDATE,'YYYYMMDDHHMISS')||LPAD(Y_USER_SID_SEQ.NEXTVAL,6,'0')	-- 가입시간 + 회원생성순번
+, #{userId}
+, #{userName}
+, #{userNick}
+, #{userPhone}
+, #{userBirth}
+, #{userEmailId}
+, #{userEmailPf}
+, #{userGender}
+, #{userGrade}
+);
+
+UPDATE Y_USER
+   SET USER_NICK = #{userNick}
+     , USER_PHONE = #{userPhone}
+     , USER_BIRTH = #{userBirth}
+     , USER_EMAIL_ID = #{userEmailId}
+     , USER_EMAIL_PF = #{userEmailPf}
+     , USER_GENDER = #{userGender}
+     , UPT_DATE = TO_CHAR(SYSDATE,'YYYYMMDDHHMISS')
+     , UPT_USER = #{userId}
+ WHERE USER_ID = #{userId}
+ ;
+
+SELECT TO_CHAR(SYSDATE,'YYYYMMDDHHMISS')||LPAD(Y_BOARD_SID_SEQ.NEXTVAL,10,'0') AS BOARD_SID FROM DUAL;
+
+INSERT INTO Y_BOARD
+( BOARD_SID
+, BOARD_TITLE
+, BOARD_CONTENT
+, BOARD_KIND_CODE
+, REG_USER
+, UPT_USER
+)VALUES
+( #{boardSid} -- TO_CHAR(SYSDATE,'YYYYMMDDHHMISS')||LPAD(Y_BOARD_SID_SEQ.NEXTVAL,10,'0')	-- 가입시간 + 회원생성순번
+, #{boardTitle}
+, #{boardContent}
+, #{boardKindCode}
+, #{userId}
+, #{userId}
+);
+
+UPDATE Y_BOARD
+   SET BOARD_TITLE = #{boardTitle}
+     , BOARD_CONTENT = #{boardContent}
+     , UPT_DATE = TO_CHAR(SYSDATE,'YYYYMMDDHHMISS')
+     , UPT_USER = #{userId}
+ WHERE BOARD_SID = #{boardSid}
+
+INSERT INTO Y_BOARD_REPLY
+( BOARD_REPLY_SID
+, BOARD_SID
+, BOARD_REPLY_CONTENT
+, REG_USER
+, UPT_USER
+)VALUES
+( TO_CHAR(SYSDATE,'YYYYMMDDHHMISS')||LPAD(Y_BOARD_REPLY_SID_SEQ.NEXTVAL,10,'0')	-- 가입시간 + 회원생성순번
+, #{boardSid}
+, #{boardReplyContent}
+, #{userId}
+, #{userId}
+);
+
+UPDATE Y_BOARD_REPLY
+   SET BOARD_REPLY_CONTENT = #{boardReplyContent}
+     , UPT_DATE = TO_CHAR(SYSDATE,'YYYYMMDDHHMISS')
+     , UPT_USER = #{userId}
+ WHERE BOARD_REPLY_SID = #{boardReplySid}
+     , BOARD_SID = #{boardSid}
+;
+
+INSERT INTO Y_BOARD_RE_REPLY
+( BOARD_RE_REPLY_SID
+, BOARD_REPLY_SID
+, BOARD_SID
+, BOARD_RE_REPLY_CONTENT
+, REG_USER
+, UPT_USER
+)VALUES
+( TO_CHAR(SYSDATE,'YYYYMMDDHHMISS')||LPAD(Y_BOARD_RE_REPLY_SID_SEQ.NEXTVAL,10,'0')	-- 가입시간 + 회원생성순번
+, #{boardReplySid}
+, #{boardSid}
+, #{boardReReplyContent}
+, #{userId}
+, #{userId}
+);
+
+UPDATE Y_BOARD_RE_REPLY
+   SET BOARD_RE_REPLY_CONTENT = #{boardReplyContent}
+     , UPT_DATE = TO_CHAR(SYSDATE,'YYYYMMDDHHMISS')
+     , UPT_USER = #{userId}
+ WHERE BOARD_RE_REPLY_SID = #{boardReReplySid}
+     , BOARD_REPLY_SID = #{boardReplySid}
+     , BOARD_SID = #{boardSid}
+;
+
+INSERT INTO Y_BOARD_EXTENSION_CONTENT
+( BOARD_EXTENSION_CONTENT_SID
+, BOARD_SID
+, BOARD_EXTENSION_CONTENT_DIRECTORY_ROUTE
+, BOARD_EXTENSION_CONTENT_FILE_NAME
+, BOARD_EXTENSION_CONTENT_FILE_EXTENSION
+, BOARD_EXTENSION_CONTENT_FILE_EXTENSION_CD
+, REG_USER
+, UPT_USER
+)VALUES
+( TO_CHAR(SYSDATE,'YYYYMMDDHHMISS')||LPAD(Y_BOARD_EXTENSION_CONTENT_SID_SEQ.NEXTVAL,10,'0')
+, #{boardSid}
+, #{boardExtensionContentDirectoryRoute}
+, #{boardExtensionContentFileName}
+, #{boardExtensionContentFileExtension}
+, #{boardExtensionContentFileExtensionCd}
+, #{userId}
+, #{userId}
+);
+
+UPDATE Y_BOARD_EXTENSION_CONTENT
+   SET BOARD_EXTENSION_CONTENT_DIRECTORY_ROUTE
+     , BOARD_EXTENSION_CONTENT_FILE_NAME
+     , BOARD_EXTENSION_CONTENT_FILE_EXTENSION
+     , BOARD_EXTENSION_CONTENT_FILE_EXTENSION_CD
+     , UPT_DATE = TO_CHAR(SYSDATE,'YYYYMMDDHHMISS')
+     , UPT_USER = #{userId}
+ WHERE BOARD_EXTENSION_CONTENT_SID = #{boardExtensionContentSid}
+     , BOARD_SID = #{boardSid}
